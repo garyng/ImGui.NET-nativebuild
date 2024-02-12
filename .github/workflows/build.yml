@@ -76,7 +76,7 @@ jobs:
     if: ${{ github.event.release.id }}
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Rename win-x64 and win-x86 artifacts
         run: |
