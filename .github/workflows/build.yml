@@ -43,28 +43,28 @@ jobs:
         shell: bash
 
       - name: Upload win-${{ matrix.architecture }} ${{ github.event.inputs.ReleaseType || 'Release' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: matrix.os == 'windows-latest'
         with:
           name: win-${{ matrix.architecture }}
           path: cimgui\build\${{ matrix.architecture }}\${{ github.event.inputs.ReleaseType || 'Release' }}\*
 
       - name: Upload ${{ matrix.os }} ${{ github.event.inputs.ReleaseType || 'Release' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
         with:
           name: ${{ matrix.os }}-x64
           path: cimgui/build/${{ github.event.inputs.ReleaseType || 'Release' }}/*
 
       - name: Upload Definitions Json File
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: matrix.os == 'windows-latest' && matrix.architecture == 'x64'
         with:
           name: JsonFiles
           path: cimgui\generator\output\definitions.json
 
       - name: Upload structs_and_enums Json File
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: matrix.os == 'windows-latest' && matrix.architecture == 'x64'
         with:
           name: JsonFiles
